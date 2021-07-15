@@ -11,7 +11,7 @@ router.get("/api/notes", (req, res) => {
   // res.json(notes);
   // console.log(uuidv4())
   fs.readFile("./db/db.json", "utf8", (error, data) => {
-    const notesData = data;
+    const notesData = JSON.parse(data);
     res.send(notesData);
     console.log(notesData);
     if (error) {
@@ -21,19 +21,21 @@ router.get("/api/notes", (req, res) => {
 });
 
 router.post("/api/notes", (req, res) => {
-    const newNote = { content: req.body, _id: uuidv4() };
+  const { body } = req;
+  console.log(body);
+  // const newNote = { body, _id: uuidv4() };
   //   notes.push(newNote);
   //   res.json(notes);
   fs.readFile("./db/db.json", "utf8", (error, data) => {
     const notesData = JSON.parse(data);
-    console.log(notesData, "before")
-    notesData.push(newNote);
-    console.log(notesData, "after");
-    fs.writeFile("./db/db.json", JSON.stringify(notesData), err => {
-        if (err) {
-            console.log(err)
-        }
-    })
+    body.id = uuidv4();
+    notesData.push(body);
+
+    fs.writeFile("./db/db.json", JSON.stringify(notesData), (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
   });
 });
 
