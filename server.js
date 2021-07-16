@@ -7,7 +7,7 @@ const PORT = 3001;
 // middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+// Set static folder
 app.use(express.static("public"));
 
 app.use(require("./routes/htmlRoutes"));
