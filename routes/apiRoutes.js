@@ -1,15 +1,15 @@
 const { v4: uuidv4 } = require("uuid");
-
+// Define variables and link files together
 const notes = require("../db/db.json");
 
 const router = require("express").Router();
-
+// To join paths
 const path = require("path");
+// To use express method for file read and write
 const fs = require("fs");
 
 router.get("/api/notes", (req, res) => {
-  // res.json(notes);
-  // console.log(uuidv4())
+
   fs.readFile("./db/db.json", "utf8", (error, data) => {
     const notesData = JSON.parse(data);
     res.send(notesData);
@@ -38,5 +38,21 @@ router.post("/api/notes", (req, res) => {
     });
   });
 });
+
+router.delete("/api/notes", (req, res) => {
+    const { body } = req;
+
+    fs.readFile("./db/db.json", "utf8", (error, data) => {
+        const notesData = JSON.parse(data);
+        body.id =uuidv4();
+        notesData.pop(body);
+
+        fs.writeFile("./db/db.son", JSON.stringify(notesData), (error) => {
+            if (error) {
+                console.log(error);
+            }
+        })
+    })
+})
 
 module.exports = router;
