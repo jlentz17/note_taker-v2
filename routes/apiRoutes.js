@@ -9,13 +9,12 @@ const path = require("path");
 const fs = require("fs");
 // Gets notes data
 router.get("/api/notes", (req, res) => {
-
   fs.readFile("./db/db.json", "utf8", (error, data) => {
     const notesData = JSON.parse(data);
     res.send(notesData);
     console.log(notesData);
     if (error) {
-      console.log(error); 
+      console.log(error);
     }
   });
 });
@@ -40,20 +39,25 @@ router.post("/api/notes", (req, res) => {
   });
 });
 
-// router.delete("/api/notes/:id", (req, res) => {
-//     const { id } = req.params;
-
-//     fs.readFile("./db/db.json", "utf8", (error, data) => {
-//         const notesData = JSON.parse(data);
-//         body.id =uuidv4();
-//         notesData.splice(id, 1);
-
-//         fs.writeFile("./db/db.son", JSON.stringify(notesData), (error) => {
-//             if (error) {
-//                 console.log(error);
-//             }
-//         })
-//     })
-// })
+router.delete("/api/notes/:id", (req, res) => {
+  const { id } = req.params;
+  let notesToKeep;
+  fs.readFile("./db/db.json", "utf8", (error, data) => {
+    const notesData = JSON.parse(data);
+    if (error) {
+      console.log(error)
+    }
+    notesToKeep = notesData.filter((note) => {
+      return note.id !== id;
+    });
+    console.log(notesData);
+    fs.writeFile("./db/db.json", JSON.stringify(notesToKeep), (error) => {
+      if (error) {
+        console.log(error);
+      }
+    });
+    res.send(notesToKeep)
+  });
+});
 
 module.exports = router;
