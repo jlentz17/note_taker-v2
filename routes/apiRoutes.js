@@ -15,7 +15,7 @@ router.get("/api/notes", (req, res) => {
     res.send(notesData);
     console.log(notesData);
     if (error) {
-      console.log(error);
+      console.log(error); 
     }
   });
 });
@@ -30,6 +30,7 @@ router.post("/api/notes", (req, res) => {
     const notesData = JSON.parse(data);
     body.id = uuidv4();
     notesData.push(body);
+    res.send(notesData);
 
     fs.writeFile("./db/db.json", JSON.stringify(notesData), (err) => {
       if (err) {
