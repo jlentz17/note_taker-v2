@@ -40,7 +40,7 @@ router.post("/api/notes", (req, res) => {
 });
 
 // router.delete("/api/notes/:id", (req, res) => {
-//     const { id } = req;
+//     const { id } = req.params;
 
 //     fs.readFile("./db/db.json", "utf8", (error, data) => {
 //         const notesData = JSON.parse(data);
