@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 // Define variables and link files together
-const notes = require("../db/db.json");
+// const notes = require("../db/db.json");
 
 const router = require("express").Router();
 // To join paths
