@@ -1,28 +1,52 @@
-# Note Taker
+# EXPRESS-Note-Taker
 
-## Links
+An application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
 
-[Note Taker Deployed Site](https://fierce-inlet-73219.herokuapp.com/)
-
+Deployed on Heroku: https://fierce-inlet-73219.herokuapp.com/
 
 [GitHub Repo](https://github.com/jlentz17/note_taker-v2)
 
+## Description
+
+Project to create a web server for a front-end application, called Note Taker
+
+User Story
+AS A small business owner
+I WANT to be able to write and save notes
+SO THAT I can organize my thoughts and keep track of tasks I need to complete
+
+![preview](preview.png)
+
+## Table of Contents
+
+- [Technologies](#Technologies)
+- [Installation](#Installation)
+- [Usage](#usage)
+- [Contributions](#Contributions)
+- [Contact](#Contact)
+- [License](#license)
+
+## Technologies
+
+This project was built using
+
+- HTML, CSS, Javascript,
+- node.js, npm, Express, and heroku
+
+## Installation
+
+requires download of node.js, npm, Express npm,
 
 ## Usage
 
->- Type in the title of your note.  
->- Type the body of your note in the 'Note Text' line.  
->- Hit the Save Button to save your note.  
->- If you want to view past notes that you've written, click the note on the left of the screen.  
->- If you want to delete a note, click the DELETE button on the note you want to delete on the left side of the screen.  
+> - Visit Deployed Webpage at https://fierce-inlet-73219.herokuapp.com/
+- Click on Get Started button to start
+- Enter a title on the 'Note Title' text to insert a title
+- Enter note text on the 'Note Text' text to insert a notation
+- Click on the save icon to save your notes
 
-<br>
-<br>
 
-## Contributers
-[Jeremy Lentz](https://github.com/jlentz17)  
-Front End - Trilogy Schools  
+## Contributions
 
-<br>
-
-2021
+UofA/Trilogy for front end
+Jeremy Lentz, for all other functionality
